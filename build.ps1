@@ -7,7 +7,7 @@ Save-Module -Name VstsTaskSdk -Path .\sdk_download
 
 New-Item .\BuildReleaseRetentionTask\ps_modules\VstsTaskSdk -ItemType Directory
 $VstsTaskModule = Get-ChildItem VstsTaskSdk.psd1 -Recurse
-Copy-Item -Recurse $VstsTaskModule.Directory .\BuildReleaseRetentionTask\ps_modules\VstsTaskSdk
+Copy-Item -Recurse "$($VstsTaskModule.Directory)\*" .\BuildReleaseRetentionTask\ps_modules\VstsTaskSdk
 
 Remove-Item -Recurse -Force .\sdk_download
 
