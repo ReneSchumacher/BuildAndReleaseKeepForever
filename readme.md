@@ -6,7 +6,12 @@ When a release has successfully deployed to PRODUCTION environment, we wanted to
 ### Releases
 - 1.0.x - Initial release
 - 2.0.x - Updated code to work with VSTS also
+- 2.1.x - Packaged PowerShell task SDK with task
 
+### Building the Extension
+- Ensure that your machine has internet access.
+- Ensure that you have the TFX command line client installed (run `npm install -g tfx-cli` to install).
+- Run the build.ps1 script to download the latest version of the PowerShell task SDK and package everything.
 
 ## Included Tasks
 ### Build Release Retension Task
