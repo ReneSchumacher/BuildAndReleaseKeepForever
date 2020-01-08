@@ -6,7 +6,7 @@ When a release has successfully deployed to PRODUCTION environment, we wanted to
 ### Releases
 - 1.0.x - Initial release
 - 2.0.x - Updated code to work with VSTS also
-- 2.1.x - Packaged PowerShell task SDK with task
+- 2.2.x - Packaged PowerShell task SDK with task
 
 ### Building the Extension
 - Ensure that your machine has internet access.
