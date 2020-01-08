@@ -2,7 +2,7 @@
 Param(
 )
    
-function Set-BuildRetension
+function Set-BuildRetention
 {
     param
     (
@@ -17,7 +17,7 @@ function Set-BuildRetension
 
     $webclient = Get-WebClient -usedefaultcreds $usedefaultcreds
     
-    write-verbose "Setting BuildID $buildID with retension set to $boolKeepForever"
+    write-verbose "Setting BuildID $buildID with retention set to $boolKeepForever"
 
     try {
         $uri = "$($tfsUri)/$($teamproject)/_apis/build/builds/$($buildID)?api-version=2.0"
@@ -121,12 +121,12 @@ if ($mode -eq "AllArtifacts")
     foreach($build in $builds)
     {
         Write-Verbose ("Updating artifact $build.name")
-        Set-BuildRetension -tfsUri $collectionUrl -teamproject $teamproject -buildid $build.id -keepForever $keepForever -usedefaultcreds $usedefaultcreds
+        Set-BuildRetention -tfsUri $collectionUrl -teamproject $teamproject -buildid $build.id -keepForever $keepForever -usedefaultcreds $usedefaultcreds
     }
 } elseif ($mode -eq "Prime") 
 {
     Write-Verbose ("Updating only primary artifact")
-    Set-BuildRetension -tfsUri $collectionUrl -teamproject $teamproject -buildid $buildid -keepForever $keepForever -usedefaultcreds $usedefaultcreds
+    Set-BuildRetention -tfsUri $collectionUrl -teamproject $teamproject -buildid $buildid -keepForever $keepForever -usedefaultcreds $usedefaultcreds
 } else 
 {
     Write-Verbose ("Updating only named artifacts")
@@ -141,7 +141,7 @@ if ($mode -eq "AllArtifacts")
             {
                 if ($artifactsArray -contains $build.name) {
                     Write-Verbose ("Updating artifact $($build.name)")
-                    Set-BuildRetension -tfsUri $collectionUrl -teamproject $teamproject -buildid $build.id -keepForever $keepForever -usedefaultcreds $usedefaultcreds
+                    Set-BuildRetention -tfsUri $collectionUrl -teamproject $teamproject -buildid $build.id -keepForever $keepForever -usedefaultcreds $usedefaultcreds
                 } else {
                     Write-Verbose ("Skipping artifact $($build.name) as not in named list")
                 }
